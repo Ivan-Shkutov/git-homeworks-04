@@ -83,18 +83,32 @@ git log v0.12.23..v0.12.24 --oneline
 
 - Найдите коммит, в котором была создана функция func providerSource, её определение в коде выглядит так: func providerSource(...) (вместо троеточия перечислены аргументы).
 
+git log -S 'func providerSource(' --oneline
 
+хеш 8c928e8358 или полный хеш 8c928e83589d90a031f811fae52a81be7153e82f.
+
+![12](https://github.com/Ivan-Shkutov/git-homeworks-04/blob/main/12.png)
 
 
 - Найдите все коммиты, в которых была изменена функция globalPluginDirs.
 
+git grep -p 'globalPluginDirs'
 
+![13](https://github.com/Ivan-Shkutov/git-homeworks-04/blob/main/13.png)
 
+функция globalPluginDirs есть в файле config_unix.go.
 
+git log -s -L :globalPluginDirs:config_unix.go --oneline
 
+There is no path config_unix.go in the commit - коммиты не найдены.
 
 - Кто автор функции synchronizedWriters?
 
+git log -S 'synchronizedWriters'
+
+![14](https://github.com/Ivan-Shkutov/git-homeworks-04/blob/main/14.png)
+
+Автором коммита является Martin Atkins. У него был самый ранний коммит с хешем 5ac311e2a91e381e2f52234668b49ba670aa0fe5 от 2017.05.03 16:25.
 
 
 
